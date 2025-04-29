@@ -46,17 +46,19 @@ public:
     }
 
     // Перевантаження операторів для базового класу
-friend ostream& operator<<(ostream& os, const Furniture& furniture) {
+friend ostream& operator<<(ostream& os, const Furniture& furniture);
+friend istream& operator>>(istream& is, Furniture& furniture) ;
+};
+    // Перевантаження операторів для базового класу
+ ostream& operator<<(ostream& os, const Furniture& furniture) {
     furniture.print(os);
     return os;
 }
 
-friend istream& operator>>(istream& is, Furniture& furniture) {
+istream& operator>>(istream& is, Furniture& furniture) {
     furniture.input(is);
     return is;
 }
-};
-
 // Похідний клас
 class Table : public Furniture {
 private:
